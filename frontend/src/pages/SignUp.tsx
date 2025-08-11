@@ -6,6 +6,8 @@ import axios from "axios";
 import { serverUrl } from "../App";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../redux/userSlice";
 
 function SignUp() {
   const [inputClicked, setInputClicked] = useState({
@@ -24,6 +26,7 @@ function SignUp() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch(); //the redux toolkit fn to store or update the data globally in the corresponding file in redux
 
   const handleSignup = async () => {
     setError("");
@@ -39,8 +42,7 @@ function SignUp() {
         },
         { withCredentials: true }
       );
-
-      console.log(result.data);
+      dispatch(setUserData(result.data)); //storing the data on the redux globally using the setUserData reducer we set on redux in the userSlice.ts
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setError(error.response?.data);
