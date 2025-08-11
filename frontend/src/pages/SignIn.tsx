@@ -126,8 +126,15 @@ function SignIn() {
               />
             )}
           </div>
+          <div
+            className="w-[90%] px-[20px] cursor-pointer"
+            onClick={() => navigate("/forgot-password")}
+          >
+            Forgot password?
+          </div>
+
           {/* to show the errors from the fetching or from the data given */}
-          <p className="text-red-700 text-md lg:text-lg">{error}</p>
+          {error && <p className="text-red-500">{error}</p>}
 
           <button
             className="w-[70%] px-[20px] py-[10px] bg-black text-white font-semibold

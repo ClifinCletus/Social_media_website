@@ -62,6 +62,17 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Story",
     },
+    //resetting password
+    resetOtp: {
+      type: String,
+    },
+    otpExpires: {
+      type: Date,
+    },
+    isOtpVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
