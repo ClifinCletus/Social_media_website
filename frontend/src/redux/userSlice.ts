@@ -14,6 +14,7 @@ const userSlice = createSlice({
   // Starting data when the app first loads
   initialState: {
     userData: null, // At first, there's no user logged in
+    suggestedUsers: null, //the suggested users for that account
   },
 
   // "Reducers" = the actions this department can perform to change its data
@@ -28,12 +29,15 @@ const userSlice = createSlice({
     setUserData: (state, action) => {
       state.userData = action.payload; // Update the user info in the store
     },
+    setSuggestedUsers: (state, action) => {
+      state.suggestedUsers = action.payload;
+    },
   },
 });
 
 // 🛠 Step 2: Export the actions (like "setUserData") so components can order changes
 // Example: dispatch(setUserData({ name: "John" }))
-export const { setUserData } = userSlice.actions;
+export const { setUserData, setSuggestedUsers } = userSlice.actions;
 
 // 🛠 Step 3: Export the reducer (the department manager) so the store can include it
 export default userSlice.reducer;

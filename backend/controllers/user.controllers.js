@@ -14,5 +14,18 @@ export const getCurrentUser = async (req, res) => {
     return res.status(200).json(user);
   } catch (error) {
     return res.status(500).json({ message: `Error getting user: ${error}` });
-  } 
+  }
+};
+
+export const suggestedUsers = async (req, res) => {
+  try {
+    const users = await User.find({
+      _id: { $ne: req.userId }, //to not include the current user
+    }).select("-password"); //get all users
+    return res.status(200).json(users);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: `get suggested user error: ${error}` });
+  }
 };
