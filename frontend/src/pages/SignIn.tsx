@@ -9,17 +9,22 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
+type inputClicked = {
+  userName: boolean;
+  password: boolean;
+};
+
 function SignIn() {
-  const [inputClicked, setInputClicked] = useState({
+  const [inputClicked, setInputClicked] = useState<inputClicked>({
     userName: false,
     password: false,
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [userName, setuserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [userName, setuserName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

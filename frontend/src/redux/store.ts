@@ -25,6 +25,10 @@ const store = configureStore({
   },
 });
 
+//Types for the whole Redux setup
+export type RootState = ReturnType<typeof store.getState>; // Shape of the store
+export type AppDispatch = typeof store.dispatch; // Type for dispatch
+
 // 🛠 Step 3: Export the store so the entire app can use it
 // We'll give this store to React using a special <Provider> wrapper in index.js
 export default store;

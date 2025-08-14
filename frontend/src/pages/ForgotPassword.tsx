@@ -3,22 +3,29 @@ import { ClipLoader } from "react-spinners";
 import { serverUrl } from "../App";
 import axios from "axios";
 
+type inputClick = {
+  email: boolean;
+  otp: boolean;
+  newPassword: boolean;
+  confirmPassword: boolean;
+};
+
 function ForgotPassword() {
   //here we have 3 steps: a) enter email,send otp b)otp verification c)reset password
   //hence we are manually tracking the current step , based on that also we  would change the ui and would do the opertions
-  const [step, setStep] = useState(1);
-  const [inputClicked, setInputClicked] = useState({
+  const [step, setStep] = useState<number>(1);
+  const [inputClicked, setInputClicked] = useState<inputClick>({
     email: false,
     otp: false,
     newPassword: false,
     confirmPassword: false,
   });
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [error, setError] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [otp, setOtp] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   const handleClick = (field: string) => {
     setInputClicked({

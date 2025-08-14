@@ -22,7 +22,7 @@ export function useApi<T>() {
 
       setData(response.data);
       return response.data;
-    } catch (err) {
+    } catch (err: unknown) {
       const axiosErr = err as AxiosError;
       const message =
         axiosErr.response?.data && typeof axiosErr.response.data === "string"

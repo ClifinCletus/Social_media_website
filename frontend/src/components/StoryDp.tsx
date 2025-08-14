@@ -1,7 +1,12 @@
 import dp from "../assets/emptyDp.png";
 
+type story = {
+  ProfileImage: string;
+  userName: string;
+};
+
 //for the stories been shown
-const StoryDp = ({ ProfileImage, userName }) => {
+const StoryDp = ({ ProfileImage, userName }: story) => {
   return (
     <div className="flex flex-col w-[80px]">
       {/* user dp */}

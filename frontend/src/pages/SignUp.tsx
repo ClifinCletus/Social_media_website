@@ -9,21 +9,28 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../redux/userSlice";
 
+type inputClick = {
+  email: boolean;
+  name: boolean;
+  userName: boolean;
+  password: boolean;
+};
+
 function SignUp() {
-  const [inputClicked, setInputClicked] = useState({
+  const [inputClicked, setInputClicked] = useState<inputClick>({
     name: false,
     userName: false,
     email: false,
     password: false,
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [name, setName] = useState("");
-  const [userName, setuserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [userName, setuserName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch(); //the redux toolkit fn to store or update the data globally in the corresponding file in redux

@@ -1,9 +1,22 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import dp from "../assets/emptyDp.png";
+import { useNavigate } from "react-router-dom";
+
+type User = {
+  profileImage: string;
+  userName: string;
+  name: string;
+};
+
+type OtherUserProps = {
+  user: User;
+};
 
 //to show the users for the leftside's suggested user and for other pages also
-const OtherUser = ({ user }) => {
-  const { userData } = useSelector((state) => state.user);
+const OtherUser = ({ user }: OtherUserProps) => {
+  // If need userData, type RootState accordingly and use it. Otherwise, remove this line.
+  //   const { userData } = useSelector((state) => state.user);
+  const navigate = useNavigate();
   return (
     <div
       className="w-full h-[80px] flex items-center justify-between border-b-2 
@@ -13,6 +26,7 @@ const OtherUser = ({ user }) => {
         <div
           className="w-[50px] h-[50px] border-2 border-black rounded-full 
         cursor-pointer overflow-hidden"
+          onClick={() => navigate(`/profile/${user.userName}`)}
         >
           <img
             src={user.profileImage || dp}
