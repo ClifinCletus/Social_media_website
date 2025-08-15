@@ -59,12 +59,30 @@ export const editProfile = async (req, res) => {
       profileImage = await uploadOnCloudinary(req.file.path);
     }
 
-    user.name = name;
-    user.userName = userName;
-    user.profileImage = profileImage;
-    user.bio = bio;
-    user.profession = profession;
-    user.gender = gender;
+    //change only if provided by the user
+    if (name) {
+      user.name = name;
+    }
+
+    if (userName) {
+      user.userName = userName;
+    }
+
+    if (profileImage) {
+      user.profileImage = profileImage;
+    }
+
+    if (bio) {
+      user.bio = bio;
+    }
+
+    if (profession) {
+      user.profession = profession;
+    }
+
+    if (gender) {
+      user.gender = gender;
+    }
 
     await user.save();
 

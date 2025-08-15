@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import getCurrentUser from "./hooks/getCurrentUser";
 import getSuggestedUsers from "./hooks/getSuggestedUsers";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
 
 export const serverUrl = "http://localhost:8000";
 
@@ -33,6 +34,10 @@ function App() {
       <Route
         path="/profile/:userName"
         element={userData ? <Profile /> : <Navigate to={"/signin"} />}
+      />
+      <Route
+        path="/editProfile"
+        element={userData ? <EditProfile /> : <Navigate to={"/signin"} />}
       />
     </Routes>
   );

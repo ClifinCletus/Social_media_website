@@ -14,7 +14,7 @@ const Nav = () => {
     justify-around items-center fixed bottom-[20px] rounded-full 
     shadow-2xl shadow-black z-100"
     >
-      <div>
+      <div onClick={() => navigate("/")}>
         <GoHomeFill className="text-white w-[25px] h-[25px]" />
       </div>
       <div>
@@ -32,7 +32,11 @@ const Nav = () => {
         cursor-pointer overflow-hidden"
         onClick={() => navigate(`/profile/${userData.userName}`)}
       >
-        <img src={dp} alt="user_dp" className="w-full object-cover" />
+        <img
+          src={userData?.profileImage || dp}
+          alt="user_dp"
+          className="w-full object-cover"
+        />
       </div>
     </div>
   );

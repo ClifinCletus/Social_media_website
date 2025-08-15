@@ -96,7 +96,7 @@ const Profile = () => {
         <div>
           {/* post */}
           <div className="text-white text-[22px] md:text-[30px] font-semibold">
-            {profileData?.posts.length}
+            {profileData?.posts?.length}
           </div>
           <div className="text-[18px] md:text-[22px] text-[#ffffffc7]">
             Posts
@@ -198,6 +198,7 @@ const Profile = () => {
           <button
             className="px-2.5 min-w-[150px] py-[5px] h-[40px] 
           bg-white cursor-pointer rounded-2xl"
+            onClick={() => navigate("/editProfile")}
           >
             Edit Profile
           </button>
