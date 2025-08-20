@@ -12,7 +12,7 @@ import {
 //router
 const postRouter = express.Router();
 
-postRouter.get("/upload", isAuth, upload.single("media"), uploadPost); //to upload a single media file
+postRouter.post("/upload", isAuth, upload.single("media"), uploadPost); //to upload a single media file
 postRouter.get("/getAll", isAuth, getAllPosts);
 postRouter.post("/like/:postId", isAuth, like);
 postRouter.get("/comment", isAuth, comment);

@@ -129,8 +129,8 @@ export const saved = async (req, res) => {
     const postId = req.params.postId;
     const user = await User.findById(req.userId);
 
-    if (!post) {
-      return res.status(400).json({ message: "post not found" });
+    if (!user) {
+      return res.status(400).json({ message: "user not found" });
     }
 
     //check if i have already saved the post
